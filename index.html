@@ -1,247 +1,320 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maison Rouge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site officiel du restaurant Rosemarie à Montpellier : cuisine française, menu de saison et histoire de la maison.">
+  <title>Restaurant Rosemarie | Montpellier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bordeaux: #5c1f2b;
+      --terracotta: #a1433f;
+      --creme: #f8f3ee;
+      --vert-sauge: #6e7f67;
+      --texte: #222;
+      --blanc: #fff;
+      --ombre: 0 14px 40px rgba(24, 14, 14, 0.15);
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-:root {
-    --red: #8b1e1e;
-    --light-red: #b03a3a;
-    --bg: #fff8f8;
-    --text: #2a2a2a;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texte);
+      background: var(--creme);
+      line-height: 1.6;
+    }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-}
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.4px;
+    }
 
-/* HEADER */
-header {
-    position: fixed;
-    width:100%;
-    top:0;
-    background: rgba(139,30,30,0.9);
-    backdrop-filter: blur(8px);
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    padding:15px 40px;
-    z-index:1000;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 243, 238, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92, 31, 43, 0.12);
+    }
 
-nav a {
-    color:white;
-    margin-left:20px;
-    text-decoration:none;
-}
+    .nav-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-/* HERO */
-.hero {
-    height:100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(139,30,30,0.6)),
-                url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c');
-    background-size:cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
+    .brand {
+      color: var(--bordeaux);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
 
-.hero h1 {
-    font-size:3.5rem;
-    animation: fadeIn 1.5s ease;
-}
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-.btn {
-    margin-top:20px;
-    padding:12px 30px;
-    border:none;
-    background: var(--light-red);
-    color:white;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s;
-}
+    nav a {
+      text-decoration: none;
+      color: var(--texte);
+      font-weight: 500;
+      position: relative;
+    }
 
-.btn:hover {
-    transform:scale(1.05);
-}
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: var(--terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
 
-/* SECTION */
-section {
-    padding:80px 40px;
-    max-width:1100px;
-    margin:auto;
-}
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
 
-/* MENU */
-.menu-grid {
-    display:grid;
-    gap:20px;
-}
+    .hero {
+      min-height: 78vh;
+      background: linear-gradient(rgba(35, 20, 24, 0.35), rgba(35, 20, 24, 0.35)),
+                  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--blanc);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-.dish {
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #ddd;
-    padding:15px 0;
-    opacity:0;
-    transform:translateY(20px);
-    transition:0.6s;
-}
+    .hero-content {
+      max-width: 760px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      padding: 34px 24px;
+      box-shadow: var(--ombre);
+    }
 
-.dish.show {
-    opacity:1;
-    transform:translateY(0);
-}
+    .hero p {
+      margin-top: 16px;
+      font-size: 1.05rem;
+    }
 
-/* CHEF */
-.chef {
-    display:flex;
-    gap:30px;
-    align-items:center;
-}
+    .cta {
+      margin-top: 24px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--terracotta);
+      color: var(--blanc);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
 
-.chef img {
-    width:200px;
-    border-radius:20px;
-}
+    .cta:hover,
+    .cta:focus-visible {
+      background: #8f3733;
+      transform: translateY(-1px);
+    }
 
-/* FOOTER */
-footer {
-    background: var(--red);
-    color:white;
-    text-align:center;
-    padding:30px;
-}
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 55px 22px 90px;
+      display: grid;
+      gap: 45px;
+    }
 
-/* ANIM */
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(10px);}
-    to {opacity:1;}
-}
-</style>
+    .section-card {
+      background: var(--blanc);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: var(--ombre);
+    }
+
+    .section-card h2 {
+      color: var(--bordeaux);
+      margin-bottom: 16px;
+      font-size: 2rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .menu-item {
+      border: 1px solid rgba(92, 31, 43, 0.12);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fffdfb;
+    }
+
+    .menu-item h3 {
+      color: var(--terracotta);
+      font-size: 1.2rem;
+    }
+
+    .menu-item .price {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--vert-sauge);
+      font-weight: 700;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      border-radius: 14px;
+      min-height: 280px;
+      object-fit: cover;
+    }
+
+    .infos {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .infos strong {
+      color: var(--bordeaux);
+    }
+
+    footer {
+      background: var(--bordeaux);
+      color: var(--blanc);
+      text-align: center;
+      padding: 22px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <h2>Maison Rouge</h2>
-    <nav>
+  <header>
+    <div class="nav-wrap">
+      <a href="#accueil" class="brand">Rosemarie</a>
+      <nav>
+        <a href="#accueil">Accueil</a>
         <a href="#menu">Menu</a>
-        <a href="#chef">Chef</a>
-        <a href="#reservation">Réserver</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div>
-        <h1>Gastronomie française contemporaine</h1>
-        <button class="btn" onclick="scrollMenu()">Découvrir le menu</button>
+        <a href="#apropos">À propos</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-<section id="menu">
-    <h2>Menu dégustation</h2>
-
-    <div class="menu-grid">
-        <div class="dish">
-            <div>
-                <strong>Foie gras maison</strong><br>
-                <small>Chutney de figues, pain brioché</small>
-            </div>
-            <span>26€</span>
-        </div>
-
-        <div class="dish">
-            <div>
-                <strong>Saint-Jacques poêlées</strong><br>
-                <small>Purée de céleri, beurre noisette</small>
-            </div>
-            <span>32€</span>
-        </div>
-
-        <div class="dish">
-            <div>
-                <strong>Filet de bœuf</strong><br>
-                <small>Sauce vin rouge, pommes grenaille</small>
-            </div>
-            <span>38€</span>
-        </div>
-
-        <div class="dish">
-            <div>
-                <strong>Sphère chocolat</strong><br>
-                <small>Cœur coulant, glace vanille</small>
-            </div>
-            <span>14€</span>
-        </div>
+  <section class="hero" id="accueil" aria-label="Accueil du restaurant Rosemarie">
+    <div class="hero-content">
+      <h1>Restaurant Rosemarie — Cuisine française à Montpellier</h1>
+      <p>
+        Bienvenue chez Rosemarie, une table conviviale où les produits locaux du Languedoc
+        rencontrent la tradition française dans une cuisine généreuse et raffinée.
+      </p>
+      <a href="#menu" class="cta">Voir le menu</a>
     </div>
-</section>
+  </section>
 
-<section id="chef">
-    <h2>Notre Chef</h2>
+  <main>
+    <section class="section-card" id="menu" aria-labelledby="titre-menu">
+      <h2 id="titre-menu">Menu de saison</h2>
+      <p>Une sélection inspirée des marchés montpelliérains, travaillée avec finesse.</p>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <h3>Entrée — Velouté de petits pois</h3>
+          <p>Menthe fraîche, crème légère de chèvre et croûtons dorés.</p>
+          <span class="price">12 €</span>
+        </article>
+        <article class="menu-item">
+          <h3>Plat — Magret de canard</h3>
+          <p>Sauce au miel de garrigue, purée maison et légumes rôtis.</p>
+          <span class="price">24 €</span>
+        </article>
+        <article class="menu-item">
+          <h3>Plat végétarien — Ravioles ricotta-épinards</h3>
+          <p>Beurre noisette au citron, parmesan affiné 18 mois.</p>
+          <span class="price">19 €</span>
+        </article>
+        <article class="menu-item">
+          <h3>Dessert — Tarte fine aux pommes</h3>
+          <p>Caramel au beurre salé et glace vanille artisanale.</p>
+          <span class="price">9 €</span>
+        </article>
+      </div>
+    </section>
 
-    <div class="chef">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+    <section class="section-card" id="apropos" aria-labelledby="titre-apropos">
+      <h2 id="titre-apropos">À propos de Rosemarie</h2>
+      <div class="about-grid">
         <div>
-            <p>
-                Formé dans les plus grandes maisons parisiennes, notre chef propose une cuisine moderne,
-                respectueuse des produits et des saisons.
-            </p>
+          <p>
+            Installé au cœur de Montpellier, Rosemarie est né de l'envie de proposer une cuisine
+            française sincère, de saison et accessible. Notre équipe privilégie les producteurs
+            régionaux et une carte courte, renouvelée régulièrement selon les arrivages.
+          </p>
+          <ul class="infos">
+            <li><strong>Adresse :</strong> 18 rue de l'Argenterie, 34000 Montpellier</li>
+            <li><strong>Horaires :</strong> Mardi au dimanche, 12h00–14h30 & 19h00–22h30</li>
+            <li><strong>Réservation :</strong> 04 67 00 00 00</li>
+          </ul>
         </div>
-    </div>
-</section>
+        <img
+          class="about-image"
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1100&q=80"
+          alt="Salle du restaurant Rosemarie à Montpellier"
+        >
+      </div>
+    </section>
+  </main>
 
-<section id="reservation">
-    <h2>Réservation</h2>
-
-    <form onsubmit="book(event)">
-        <input type="text" placeholder="Nom" required><br><br>
-        <input type="date" required><br><br>
-        <input type="time" required><br><br>
-        <button class="btn">Réserver</button>
-    </form>
-</section>
-
-<footer>
-    12 rue imaginaire, Paris • 01 23 45 67 89
-</footer>
-
-<script>
-function scrollMenu(){
-    document.getElementById('menu').scrollIntoView({behavior:'smooth'});
-}
-
-function book(e){
-    e.preventDefault();
-    alert("Réservation confirmée 🍷");
-}
-
-/* animation scroll */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-});
-
-document.querySelectorAll('.dish').forEach(el=>observer.observe(el));
-</script>
-
+  <footer>
+    © 2026 Restaurant Rosemarie — Montpellier • Cuisine française de saison
+  </footer>
 </body>
 </html>
